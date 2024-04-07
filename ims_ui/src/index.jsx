@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './styles.css';
 import App from './App.jsx';
 import reportWebVitals from './reportWebVitals.js';
 import { AuthProvider } from "react-oidc-context";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { oidcConfig } from './security/oidcConfig.js';
 import Callback from './security/Callback.jsx';
+import PurchaseOrderList from './components/purchaseOrders/PurchaseOrderList.jsx';
 
 // AuthProvider is a wrapper component that provides the OpenID Connect functionality to its children.
 // Automatically handles much  of the auth flow
@@ -19,6 +20,7 @@ root.render(
       <Routes>
         <Route path="/callback" element={<Callback />} />
         <Route path="/" element={<App />} />
+        <Route path="/purchaseOrderList" element={<PurchaseOrderList />} />
       </Routes>
     </Router>
   </AuthProvider>
