@@ -3,7 +3,7 @@ import { useAuth } from 'react-oidc-context';
 import { useEffect, useState } from 'react';
 
 function ProtectedComponent({ children }) {
-  const { user, isLoading, signinRedirect } = useAuth();
+  const { user, isLoading } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
@@ -15,7 +15,7 @@ function ProtectedComponent({ children }) {
         setLoading(false);
       }
     }
-  }, [isLoading, user, signinRedirect]);
+  }, [isLoading, user, navigate]);
 
   if (loading) {
     return null; // or a loading spinner
