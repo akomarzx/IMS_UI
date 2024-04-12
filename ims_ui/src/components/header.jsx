@@ -1,4 +1,4 @@
-import imslogo from "../assets/imslogo.svg"
+import imslogo from "../assets/IMS_logo.svg"
 import { MdSettings } from "react-icons/md";
 import { FaUser } from "react-icons/fa6";
 import { IoMdHelp } from "react-icons/io";
