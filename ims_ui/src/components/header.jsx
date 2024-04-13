@@ -12,7 +12,7 @@ const Header = () => {
   const {user, signoutSilent} = useAuth();
 
     return (
-      <div>
+      <div className="w-full mt-0 mb-10">
         <div className="flex justify-center">
             <img src={imslogo} alt="logo"
             className="bg-neutral w-full aspect-[16.29] max-md:max-w-full"
