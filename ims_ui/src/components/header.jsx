@@ -9,7 +9,7 @@ import { useAuth } from 'react-oidc-context';
 
 const Header = () => {
 
-  const {user} = useAuth();
+  const {user, signoutSilent} = useAuth();
 
     return (
       <div>
@@ -27,7 +27,7 @@ const Header = () => {
                 <IoMdHelp className="my-auto"/>
                 <button>Help</button>
                 <FaSignOutAlt className="my-auto"/>   
-                <button>SignOut</button>
+                <button onClick={signoutSilent}>SignOut</button>
             </div>
           </div>
         }
