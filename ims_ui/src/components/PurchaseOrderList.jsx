@@ -39,7 +39,7 @@ function PurchaseOrderList() {
 
   useEffect(() => {
     if (user) {
-      fetch('http://localhost:8080/api/v1/order?type=purchase', {
+      fetch('https://ronaldjro.dev/api/v1/order?type=purchase', {
         headers: {
           Authorization: `Bearer ${user.access_token}`,
         },
