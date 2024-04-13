@@ -1,10 +1,19 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { useAuth } from 'react-oidc-context';
-import Header from "./components/header"
+//import Header from "./components/header"
 import Footer from "./components/footer"
 //import SignUp from "./components/signup"
+//import AddSupplierForm from "./components/addsupplier";
+//import AddInventoryForm from "./components/addinventory";
+//import SideNavBar from "./components/sidenavbar";
+//import CustomerList from "./components/customerlist";
+//import SupplierList from "./components/supplierlist";
+//import SalesOrderList from "./components/salesorderlist";
+//import Dashboard from "./components/dashboard";
 import PurchaseOrderList from './components/PurchaseOrderList.jsx';
+//inactive paths are commented out please use as needed for testing purpose
+
 
 function App() {
   // useAuth can be destrctured for useful Authentication related properties and funtions
