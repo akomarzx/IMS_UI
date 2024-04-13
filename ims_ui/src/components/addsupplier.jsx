@@ -18,7 +18,7 @@ function AddSupplierForm() {
 
   return (
   
-    <div className="flex-container mx-auto mt-20 mb-20  pb-10 rounded-xl bg-slate-500 max-w-[750px]">
+    <div className="flex-container ml-[500px] mr-[1px] pb-10 mb-20 rounded-xl border border-black border-solid bg-slate-500 w-[750px]">
         <div className="container mx-auto py-1.5 font-bold rounded-xl bg-stone-400 w-[750px]">
         <div className="text-xl text-center text-zinc-800 max-md:max-w-full"><h1>SUPPLIER CONTACT INFORMATION</h1>
       </div>
@@ -66,12 +66,12 @@ function AddSupplierForm() {
         />
         </div>
     <div className="flex gap-15 self-center mt-16 text-2xl text-center font-bold text-stone-400 ">
-            <div className="grow px-5 py-2 self-center mx-20 pt-2 pb-1.5 rounded-lg bg-zinc-800">
+            <div className="grow hover:bg-zinc-800 hover:text-stone-400 px-5 py-2 self-center mx-20 pt-2 pb-1.5 rounded-lg text-zinc-800 bg-stone-400">
         
           <button id="addSupplier" onClick={handleAddSupplier}>
             Submit
           </button></div>
-          <div className="grow justify-center mx-10 py-2 px-5 rounded-lg bg-zinc-800">
+          <div className="grow hover:bg-zinc-800 hover:text-stone-400 justify-center mx-10 py-2 px-5 rounded-lg text-zinc-800 bg-stone-400">
             <button id="cancel">Cancel</button></div>
         </div>
       </form>
