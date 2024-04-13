@@ -12,6 +12,7 @@ import PurchaseOrderList from './components/PurchaseOrderList.jsx';
 import Footer from './components/footer.jsx';
 import AddSupplier from './components/addsupplier.jsx';
 import Header from './components/header.jsx';
+import InventoryPage from './components/InventoryList.jsx';
 
 
 // AuthProvider is a wrapper component that provides the OpenID Connect functionality to its children.
@@ -28,7 +29,8 @@ root.render(
           <Route path="/callback" element={<Callback />} />
           <Route path="/" element={<App />} />
           <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList/></ProtectedComponent>} />
-          <Route path="/addSupplier" element={<AddSupplier />}  />
+          <Route path="/inventory" element={<ProtectedComponent><InventoryPage/></ProtectedComponent>} />
+          <Route path="/addSupplier" element={<AddSupplier />} />
         </Routes>
       </Router>
       <Footer year={new Date().getFullYear()}></Footer>
