@@ -8,8 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { oidcConfig } from './security/oidcConfig.js';
 import Callback from './security/Callback.jsx';
 import ProtectedComponent from './security/ProtectedComponent.jsx';
-import PurchaseOrderList from './components/purchaseOrders/PurchaseOrderList.jsx';
-
+import PurchaseOrderList from './components/PurchaseOrderList.jsx';
 
 
 // AuthProvider is a wrapper component that provides the OpenID Connect functionality to its children.
