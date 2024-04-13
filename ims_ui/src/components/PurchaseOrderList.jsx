@@ -21,7 +21,7 @@ function PurchaseOrderListItem({ purchaseOrder }) {
 function PurchaseOrderList({ purchaseOrders }) {
   return (
     <div className="flex flex-col max-w-[933px]">
-      <header className="flex flex-col py-2.5 w-full rounded-2xl bg-stone-400 max-md:max-w-full center-content">
+      <header className="flex flex-col py-2.5 w-full rounded-2xl bg-stone-400 max-md:max-w-full">
         <div className="flex flex-col text-center text-white max-md:max-w-full">
           <h2 className="items-center pt-4 pr-16 pb-2 pl-20 text-3xl font-bold underline rounded-2xl bg-slate-500 max-md:px-5 max-md:max-w-full">
             PO List

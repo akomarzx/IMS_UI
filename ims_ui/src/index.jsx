@@ -21,8 +21,8 @@ import Header from './components/header.jsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider {...oidcConfig}>
-    <div className="flex flex-col min-h-screen">
-    ` <Header />
+    <div className="flex flex-col min-h-screen center-content">
+      <Header />
       <Router>
         <Routes>
           <Route path="/callback" element={<Callback />} />
