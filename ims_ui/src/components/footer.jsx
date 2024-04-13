@@ -3,7 +3,7 @@ import { PiCopyrightBold } from "react-icons/pi";
 
 function Footer(props) {
   return (
-    <div className="flex flex-col items-center px-16 pt-6 pb-1.5 w-full text-center bg-zinc-800 text-stone-400 max-md:px-5 max-md:max-w-full">
+    <div className="flex flex-col mb-0 mt-10 items-center px-16 pt-6 pb-1.5 w-full text-center bg-zinc-800 text-stone-400 w-full max-md:max-w-full">
       <div className="flex flex-col max-w-full w-[489px]">
         <div className="text-3xl font-bold max-md:max-w-full">
           <div className="text-sm text-stone-400">

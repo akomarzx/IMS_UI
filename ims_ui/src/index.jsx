@@ -31,7 +31,7 @@ root.render(
           <Route path="/addSupplier" element={<AddSupplier />}  />
         </Routes>
       </Router>
-      <Footer year={new Date().getFullYear()}></Footer>`
+      <Footer year={new Date().getFullYear()}></Footer>
     </div>
   </AuthProvider>
 );
