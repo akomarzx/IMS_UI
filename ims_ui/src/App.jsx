@@ -20,21 +20,11 @@ function App() {
   }, [user, signinRedirect]);
 
   if (user) {
-    return <>    
-      <div>
-        <PurchaseOrderList></PurchaseOrderList>
-        <Footer></Footer>
-      </div>
-    </>
+    return <h1>You are logged in!</h1>
+        
   } else {
-    return <h1>You will be redirected to the login screen...</h1>;
+    return <h1>You will be redirected to the login screen...</h1>
   }
-<div>
-  <Header/>
-  <Footer
-    year={new Date().getFullYear()}
-    />
-</div>
   
 }
 
