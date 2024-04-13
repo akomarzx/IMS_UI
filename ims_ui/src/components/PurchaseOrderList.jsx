@@ -4,7 +4,7 @@ import { useAuth } from 'react-oidc-context';
 const STATUS_CODES = {
   'PURCHASE_ORDER_PENDING': 'Pending',
   'PURCHASE_ORDER_PO_SENT': 'PO Sent',
-  'PURCHASE_ORDER_PARTIALLY_RECEIVED': 'Partially Received',
+  'PURCHASE_ORDER_PARTIALLY_RECEVIED': 'Partially Received',
   'PURCHASE_ORDER_RECEIVED': 'Received',
   'PURCHASE_ORDER_CLOSED': 'Closed',
 };
@@ -39,7 +39,7 @@ function PurchaseOrderList() {
 
   useEffect(() => {
     if (user) {
-      fetch('https://ronaldjro.dev/api/v1/order?type=purchase', {
+      fetch('http://localhost:8080/api/v1/order?type=purchase', {
         headers: {
           Authorization: `Bearer ${user.access_token}`,
         },
@@ -71,7 +71,7 @@ function PurchaseOrderList() {
 
   const notSentPOs = orders.filter(order => order.orderStatus === 'PURCHASE_ORDER_PENDING').length;
   const sentPOs = orders.filter(order => order.orderStatus === 'PURCHASE_ORDER_PO_SENT').length;
-  const receivedPOs = orders.filter(order => order.orderStatus === 'PURCHASE_ORDER_RECEIVED').length;
+  const receivedPOs = orders.filter(order => order.orderStatus === 'PURCHASE_ORDER_RECEIVED' || order.orderStatus === 'PURCHASE_ORDER_PARTIALLY_RECEVIED').length;
   const closedPOs = orders.filter(order => order.orderStatus === 'PURCHASE_ORDER_CLOSED').length;
 
   //create the list and populate it with the PurchaseOrderListItem component for each table row in the list section
