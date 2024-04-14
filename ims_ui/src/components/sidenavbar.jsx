@@ -18,7 +18,7 @@ const SideNavBar = () => {
         <ul className="p-4">
           <li className="py-2">{/*replace all the [a href = "#"] values to the correct path to open different pages*/}
             <a href="#" className="flex flex-row gap-2 text-zinc-800 text-xl font-bold hover:bg-slate-800  hover:text-white px-4 rounded-lg">
-                <MdSpaceDashboard className="my-auto"/>Dashboard
+              <MdSpaceDashboard className="my-auto" />Dashboard
             </a>
           </li>
           <li>
@@ -39,7 +39,7 @@ const SideNavBar = () => {
           <li>
             <a href="#" className="flex flex-row gap-2 text-zinc-800 text-xl font-bold hover:bg-slate-800  hover:text-white mt-4 px-4 rounded-lg">
               <MdOutlineInventory className="my-auto" />Inventory
-            </Link>
+            </a>
           </li>
           <li>
             <Link to="/inventory" className="flex flex-row gap-2 text-zinc-800 text-lg font-semibold hover:bg-slate-800  hover:text-white px-6 py-2">
@@ -48,7 +48,7 @@ const SideNavBar = () => {
           </li>
           <li>
             <a href="#" className="flex flex-row gap-2 text-zinc-800 text-xl font-bold hover:bg-slate-800  hover:text-white mt-4 px-4 rounded-lg">
-                <MdOutlineInventory className="my-auto" />Inventory
+              <MdOutlineInventory className="my-auto" />Inventory
             </a>
           </li>
           <li>
@@ -63,7 +63,7 @@ const SideNavBar = () => {
           </li>
           <li>
             <a href="#" className="flex flex-row gap-2 text-zinc-800 text-xl font-bold hover:bg-slate-800 hover:text-white mt-4 px-4 rounded-lg">
-                <MdBorderColor className="my-auto" /> Orders
+              <MdBorderColor className="my-auto" /> Orders
             </a>
           </li>
           <li>
@@ -78,7 +78,7 @@ const SideNavBar = () => {
           </li>
           <li>
             <a href="#" className="flex flex-row gap-2 text-zinc-800 text-xl font-bold hover:bg-slate-800 hover:text-white mt-4 px-4 rounded-lg">
-                <TbReportSearch className="my-auto" /> Reports
+              <TbReportSearch className="my-auto" /> Reports
             </a>
           </li>
         </ul>
