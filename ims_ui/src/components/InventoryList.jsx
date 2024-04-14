@@ -51,8 +51,8 @@ function InventoryPage() {
   const [error, setError] = useState(null);
   const { user } = useAuth();
 
-  const serviceUrl = 'http://localhost:8080/api/v1/inventory?page=0&size=5'
-  //const serviceUrl = 'https://ronaldjro.dev/api/v1/inventory?page=0&size=5''
+  //const serviceUrl = 'http://localhost:8080/api/v1/inventory?page=0&size=5'
+  const serviceUrl = 'https://ronaldjro.dev/api/v1/inventory?page=0&size=5'
 
   useEffect(() => {
     if (user) {
