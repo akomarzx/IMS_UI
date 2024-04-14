@@ -11,6 +11,7 @@ const Header = () => {
 
   const { user, signoutSilent } = useAuth();
 
+
   return (
     <div className="w-full mt-0 mb-10">
       <div className="flex justify-center">
@@ -32,5 +33,6 @@ const Header = () => {
       </div>
     </div>
   );
+
 };
 export default Header;
