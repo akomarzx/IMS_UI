@@ -17,23 +17,23 @@ function InventoryItem({ inventoryItem }) {
             {inventoryItem.imgUrl ? (
               <>
                 <div>
-                  <img src={inventoryItem.imgUrl} width={100} height={100} alt='Invetory Item Picture'></img>
+                  <img src={inventoryItem?.imgUrl} width={100} height={100} alt='Invetory Item Picture'></img>
                 </div>
               </>
             ) : (
               <></>
             )}
             <div className='flex-row'>
-              <p className='px-2 text-left text-2xl font-bold'>{inventoryItem.label?.trim()}</p>
+              <p className='px-2 text-left text-2xl font-bold'>{inventoryItem?.label.trim()}</p>
               <p className='px-2 text-left text-base'>SKU: {inventoryItem.sku?.trim()}</p>
-              <p className='px-2 text-left text-base'>Category: {inventoryItem.categories.trim()}</p>
+              <p className='px-2 text-left text-base'>Category: {inventoryItem?.categories.trim()}</p>
             </div>
           </div>
         </td>
         <td className="px-4 py-2 text-2xl">{inventoryItem.quantity}</td>
         <td className="px-4 py-2 text-2xl">{inventoryItem.id}</td>
         <td className="px-4 py-2 text-2xl">{currencyFormat(inventoryItem.sellingPrice)}</td>
-        <td className="px-4 py-2 text-2xl">{new Date(inventoryItem.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+        <td className="px-4 py-2 text-2xl">{new Date(inventoryItem?.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
       </tr>
       <tr>
         <td colSpan='9'>
@@ -52,7 +52,7 @@ function InventoryPage() {
   const { user } = useAuth();
 
   //const serviceUrl = 'http://localhost:8080/api/v1/inventory?page=0&size=5'
-  const serviceUrl = 'https://ronaldjro.dev/api/v1/inventory?page=0&size=5'
+  const serviceUrl = 'https://ronaldjro.dev/api/v1/inventory?page=0&size=50'
 
   useEffect(() => {
     if (user) {
