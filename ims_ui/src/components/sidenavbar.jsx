@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 const SideNavBar = () => {
   return (
-    <div className="bg-slate-300 overflow-x-auto relative w-64 bottom-0 left-0 pt-[64px]">
+    <div className="bg-slate-300 overflow-x-auto relative w-64 bottom-0 left-0 pt-[64px] rounded-2xl">
       <div className="flex flex-row gap-2 text-xl items-center justify-center font-bold bg-slate-300 text-zinc-800">
         <FaUserCircle className="my-auto" /> Admin (Signed in)    </div>
       <div className="flex-1 overflow-y-auto">
