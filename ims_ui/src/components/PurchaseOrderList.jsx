@@ -15,19 +15,19 @@ function PurchaseOrderListItem({ order }) {
   //Using w-full etc to set div/element size relative to container (w-11/12 is 11/12 of the container width, etc.)
   //Using max-md:max-w-full to set the container width to full width on mobile devices
   return (
-      <tbody>
-        <tr className="text-center text-3xl">
-          <td className="px-4 py-2">{statusLabel}</td>
-          <td className="px-4 py-2">{order.orderReferenceNumber}</td>
-          <td className="px-4 py-2">{order.id}</td>
-        </tr>
-        <tr>
-          <td colSpan='3'>
-            <div className="shrink-0 h-0.5 border border-solid bg-zinc-800 border-zinc-800 max-md:max-w-full w-11/12 mx-auto"></div>
-          </td>
-        </tr>
-      </tbody>
-      
+    <tbody>
+      <tr className="text-center text-2xl">
+        <td className="px-4 py-2">{statusLabel}</td>
+        <td className="px-4 py-2">{order.orderReferenceNumber}</td>
+        <td className="px-4 py-2">{order.id}</td>
+      </tr>
+      <tr>
+        <td colSpan='3'>
+          <div className="shrink-0 h-0.5 border border-solid bg-zinc-800 border-zinc-800 max-md:max-w-full w-11/12 mx-auto"></div>
+        </td>
+      </tr>
+    </tbody>
+
   );
 }
 
@@ -78,50 +78,50 @@ function PurchaseOrderList() {
   //create the table for the supplier statistics section from lengths of filtered orders data (above)
   return (
     <header className="flex flex-col py-2.5 center-content w-screen-xl rounded-2xl bg-stone-400 max-md:max-w-full">
-    <div className="px-7 flex flex-col w-screen-xl max-md:max-w-full">
-      <div className="py-2">
-        <h1 className="items-center text-center mb-2 pt-4 pr-16 pb-2 pl-20 text-3xl font-bold underline text-white rounded-2xl bg-slate-500 max-md:px-5 max-md:max-w-full">
-          Purchase Orders
-        </h1>
-        <table className="table-auto w-full max-md:max-w-full">
-        <thead>
-          <tr className="text-3xl text-white rounded-2xl bg-zinc-800">
-            <th className="rounded-l-2xl px-4 py-2">Order Status</th>
-            <th className="px-4 py-2">Ref</th>
-            <th className="rounded-r-2xl px-4 py-2">Order #</th>
-          </tr>
-        </thead>
-          {orders.map(order => (
-            <PurchaseOrderListItem key={order.id} order={order} />
-          ))}
-        </table>
-      </div>
+      <div className="px-7 flex flex-col w-screen-xl max-md:max-w-full">
+        <div className="py-2">
+          <h1 className="items-center text-center mb-2 pt-4 pr-16 pb-2 pl-20 text-3xl font-bold underline text-white rounded-2xl bg-slate-500 max-md:px-5 max-md:max-w-full">
+            Purchase Orders
+          </h1>
+          <table className="table-auto w-full max-md:max-w-full">
+            <thead>
+              <tr className="text-3xl text-white rounded-2xl bg-zinc-800">
+                <th className="rounded-l-2xl px-4 py-2">Order Status</th>
+                <th className="px-4 py-2">Ref</th>
+                <th className="rounded-r-2xl px-4 py-2">Order #</th>
+              </tr>
+            </thead>
+            {orders.map(order => (
+              <PurchaseOrderListItem key={order.id} order={order} />
+            ))}
+          </table>
+        </div>
 
-      <div className="py-2">
-        <h2 className="justify-center items-center mb-2 w-full py-3 pr-16 pl-20 text-3xl font-bold text-center text-white underline rounded-2xl bg-slate-500 max-md:px-5 max-md:max-w-full">
-          Supplier Statistics
-        </h2>
-          
-        <table className="table-auto w-full max-md:max-w-full text-3xl">
-          <thead>
-            <tr className="text-white bg-zinc-800">
-              <th className="rounded-l-2xl px-4 py-2">Pending POs</th>
-              <th className="px-4 py-2">Sent POs</th>
-              <th className="px-4 py-2">Received POs</th>
-              <th className="rounded-r-2xl px-4 py-2">Closed POs</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="text-center text-3xl">
-              <td className="px-4 py-2">{notSentPOs}</td>
-              <td className="px-4 py-2">{sentPOs}</td>
-              <td className="px-4 py-2">{receivedPOs}</td>
-              <td className="px-4 py-2">{closedPOs}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="py-2">
+          <h2 className="justify-center items-center mb-2 w-full py-3 pr-16 pl-20 text-3xl font-bold text-center text-white underline rounded-2xl bg-slate-500 max-md:px-5 max-md:max-w-full">
+            Supplier Statistics
+          </h2>
+
+          <table className="table-auto w-full max-md:max-w-full text-3xl">
+            <thead>
+              <tr className="text-white bg-zinc-800">
+                <th className="rounded-l-2xl px-4 py-2">Pending POs</th>
+                <th className="px-4 py-2">Sent POs</th>
+                <th className="px-4 py-2">Received POs</th>
+                <th className="rounded-r-2xl px-4 py-2">Closed POs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="text-center text-3xl">
+                <td className="px-4 py-2">{notSentPOs}</td>
+                <td className="px-4 py-2">{sentPOs}</td>
+                <td className="px-4 py-2">{receivedPOs}</td>
+                <td className="px-4 py-2">{closedPOs}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
     </header>
   );
 }

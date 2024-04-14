@@ -12,6 +12,8 @@ import Footer from "./components/footer"
 //import SalesOrderList from "./components/salesorderlist";
 //import Dashboard from "./components/dashboard";
 import PurchaseOrderList from './components/PurchaseOrderList.jsx';
+import InventoryPage from './components/InventoryList.jsx';
+import { Navigate, useNavigate } from 'react-router-dom';
 //inactive paths are commented out please use as needed for testing purpose
 
 
@@ -21,6 +23,7 @@ function App() {
   // user contains the user object if the user is logged in, get your token for authenticating requests or user information from this property
   // the useAuth hook will contain the same context as the AuthProvider (all child components of the auth provider will have access to the same oidc context)
   const { user, signinRedirect } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) {
@@ -29,12 +32,13 @@ function App() {
   }, [user, signinRedirect]);
 
   if (user) {
-    return <h1>You are logged in!</h1>
-        
+    return <>
+      {/*Add desired component names below for testing purposes*/}
+      <Navigate to='/inventory'></Navigate>
+    </>
   } else {
     return <h1>You will be redirected to the login screen...</h1>
   }
-  
-}
+};
 
 export default App;
