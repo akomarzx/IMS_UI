@@ -47,11 +47,6 @@ const SideNavBar = () => {
             </Link>
           </li>
           <li>
-            <a href="#" className="flex flex-row gap-2 text-zinc-800 text-xl font-bold hover:bg-slate-800  hover:text-white mt-4 px-4 rounded-lg">
-              <MdOutlineInventory className="my-auto" />Inventory
-            </a>
-          </li>
-          <li>
             <a href="#" className="flex flex-row gap-2 text-zinc-800 text-lg font-semibold hover:bg-slate-800 hover:text-white px-6 py-2">
               <FaAngleDoubleRight className="my-auto" /> Categories
             </a>
