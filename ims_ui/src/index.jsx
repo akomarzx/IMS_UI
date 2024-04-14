@@ -23,20 +23,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider {...oidcConfig}>
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen min-w-screen center-content">
-        <Header />
-        <div className='flex flex-row'>
-          <div>
-            <SideNavBar></SideNavBar>
-          </div>
-          <div>
-            <Routes>
-              <Route path="/callback" element={<Callback />} />
-              <Route path="/" element={<App />} />
-              <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList /></ProtectedComponent>} />
-              <Route path="/inventory" element={<ProtectedComponent><InventoryPage /></ProtectedComponent>} />
-              <Route path="/addSupplier" element={<AddSupplier/>} />
-            </Routes>
+      <div className="flex flex-col min-h-screen max-h-full min-w-screen justify-between">
+        <div className='min-h-screen'>
+          <Header />
+          <div className='flex flex-row'>
+            <div>
+              <SideNavBar></SideNavBar>
+            </div>
+            <div className='flex-grow'>
+              <Routes>
+                <Route path="/callback" element={<Callback />} />
+                <Route path="/" element={<App />} />
+                <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList /></ProtectedComponent>} />
+                <Route path="/inventory" element={<ProtectedComponent><InventoryPage /></ProtectedComponent>} />
+                <Route path="/addSupplier" element={<AddSupplier />} />
+              </Routes>
+            </div>
           </div>
         </div>
         <Footer year={new Date().getFullYear()}></Footer>

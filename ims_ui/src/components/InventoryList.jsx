@@ -89,28 +89,30 @@ function InventoryPage() {
   //create the list and populate it with the PurchaseOrderListItem component for each table row in the list section
   //create the table for the supplier statistics section from lengths of filtered orders data (above)
   return (
-    <header className="flex flex-col py-2.5 center-content w-screen-xl rounded-2xl bg-stone-400 max-md:max-w-full">
+    <header className="flex flex-col py-2.5 w-screen-xl rounded-2xl bg-stone-400 max-md:max-w-full h-4/6">
       <div className="px-7 flex flex-col w-screen-xl max-md:max-w-full">
-        <div className="py-2">
+        <div className="py-2 h-3/4">
           <h1 className="items-center text-center mb-2 pt-4 pr-16 pb-2 pl-20 text-3xl font-bold underline text-white rounded-2xl bg-slate-500 max-md:px-5 max-md:max-w-full">
             Inventory Items
           </h1>
-          <table className="table-auto w-full max-md:max-w-full">
-            <thead>
-              <tr className="text-2xl text-white bg-zinc-800">
-                <th className="rounded-2xl px-4 py-2">Name</th>
-                <th className="rounded-2xl px-4 py-2">Quantity</th>
-                <th className="rounded-2xl px-4 py-2">Inventory ID</th>
-                <th className="rounded-2xl px-4 py-2">Selling Price</th>
-                <th className="rounded-2xl px-4 py-2">Date Created</th>
-              </tr>
-            </thead>
-            <tbody>
-              {inventoryItems.map(item => (
-                <InventoryItem key={item.id} inventoryItem={item} />
-              ))}
-            </tbody>
-          </table>
+          <div className='overflow-auto h-4/5'>
+            <table className="table-auto w-full max-md:max-w-full">
+              <thead>
+                <tr className="text-2xl text-white bg-zinc-800">
+                  <th className="rounded-2xl px-4 py-2">Name</th>
+                  <th className="rounded-2xl px-4 py-2">Quantity</th>
+                  <th className="rounded-2xl px-4 py-2">Inventory ID</th>
+                  <th className="rounded-2xl px-4 py-2">Selling Price</th>
+                  <th className="rounded-2xl px-4 py-2">Date Created</th>
+                </tr>
+              </thead>
+              <tbody>
+                {inventoryItems.map(item => (
+                  <InventoryItem key={item.id} inventoryItem={item} />
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </header>
