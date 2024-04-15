@@ -20,9 +20,10 @@ function PurchaseOrderListItem({ order }) {
         <td className="px-4 py-2">{statusLabel}</td>
         <td className="px-4 py-2">{order.orderReferenceNumber}</td>
         <td className="px-4 py-2">{order.id}</td>
+        <td className="px-4 py-2">{new Date(order?.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
       </tr>
       <tr>
-        <td colSpan='3'>
+        <td colSpan='8'>
           <div className="shrink-0 h-0.5 border border-solid bg-zinc-800 border-zinc-800 max-md:max-w-full w-11/12 mx-auto"></div>
         </td>
       </tr>
@@ -88,7 +89,8 @@ function PurchaseOrderList() {
               <tr className="text-3xl text-white rounded-2xl bg-zinc-800">
                 <th className="rounded-l-2xl px-4 py-2">Order Status</th>
                 <th className="px-4 py-2">Ref</th>
-                <th className="rounded-r-2xl px-4 py-2">Order #</th>
+                <th className="px-4 py-2">Order #</th>
+                <th className="rounded-r-2xl px-4 py-2">Date Created</th>
               </tr>
             </thead>
             {orders.map(order => (
