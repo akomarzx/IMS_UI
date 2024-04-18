@@ -4,7 +4,7 @@ import './styles.css';
 import App from './App.jsx';
 import reportWebVitals from './reportWebVitals.js';
 import { AuthProvider } from "react-oidc-context";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import { oidcConfig } from './security/oidcConfig.js';
 import Callback from './security/Callback.jsx';
 import ProtectedComponent from './security/ProtectedComponent.jsx';
@@ -13,7 +13,8 @@ import Footer from './components/footer.jsx';
 import AddSupplier from './components/addsupplier.jsx';
 import Header from './components/header.jsx';
 import CodeBookProvider from './components/CodeBookProvider.jsx';
-
+import InventoryPage from './components/InventoryList.jsx';
+import SideNavBar from './components/sidenavbar.jsx';
 
 // AuthProvider is a wrapper component that provides the OpenID Connect functionality to its children.
 // Automatically handles much  of the auth flow
@@ -23,18 +24,28 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider {...oidcConfig}>
     <CodeBookProvider>
-    <div className="flex flex-col min-h-screen center-content">
-      <Header />
-      <Router>
-        <Routes>
-          <Route path="/callback" element={<Callback />} />
-          <Route path="/" element={<App />} />
-          <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList/></ProtectedComponent>} />
-          <Route path="/addSupplier" element={<ProtectedComponent><AddSupplier /></ProtectedComponent>}  />
-        </Routes>
-      </Router>
-      <Footer year={new Date().getFullYear()}></Footer>
-    </div>
+      <BrowserRouter>
+        <div className="flex flex-col min-h-screen max-h-full min-w-screen justify-between">
+          <div className='min-h-screen'>
+            <Header />
+            <div className='flex flex-row'>
+              <div>
+                <SideNavBar></SideNavBar>
+              </div>
+              <div className='flex-grow'>
+                <Routes>
+                  <Route path="/callback" element={<Callback />} />
+                  <Route path="/" element={<App />} />
+                  <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList /></ProtectedComponent>} />
+                  <Route path="/inventory" element={<ProtectedComponent><InventoryPage /></ProtectedComponent>} />
+                  <Route path="/addSupplier" element={<ProtectedComponent><AddSupplier /></ProtectedComponent>} />
+                </Routes>
+              </div>
+            </div>
+          </div>
+          <Footer year={new Date().getFullYear()}></Footer>
+        </div>
+      </BrowserRouter>
     </CodeBookProvider>
   </AuthProvider>
 );
