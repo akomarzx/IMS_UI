@@ -15,6 +15,8 @@ import Header from './components/header.jsx';
 import CodeBookProvider from './components/CodeBookProvider.jsx';
 import InventoryPage from './components/InventoryList.jsx';
 import SideNavBar from './components/sidenavbar.jsx';
+import SupplierList from './components/supplierlist.jsx';
+import CreatePurchaseOrder from './components/create-purchaseorder.jsx';
 
 // AuthProvider is a wrapper component that provides the OpenID Connect functionality to its children.
 // Automatically handles much  of the auth flow
@@ -39,6 +41,8 @@ root.render(
                   <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList /></ProtectedComponent>} />
                   <Route path="/inventory" element={<ProtectedComponent><InventoryPage /></ProtectedComponent>} />
                   <Route path="/addSupplier" element={<ProtectedComponent><AddSupplier /></ProtectedComponent>} />
+                  <Route path="/supplier" element={<ProtectedComponent><SupplierList /></ProtectedComponent>} />
+                  <Route path="/create-po" element={<ProtectedComponent><CreatePurchaseOrder /></ProtectedComponent>} />
                 </Routes>
               </div>
             </div>
