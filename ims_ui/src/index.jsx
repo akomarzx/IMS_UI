@@ -17,6 +17,9 @@ import InventoryPage from './components/InventoryList.jsx';
 import SideNavBar from './components/sidenavbar.jsx';
 import SupplierList from './components/supplierlist.jsx';
 import CreatePurchaseOrder from './components/create-purchaseorder.jsx';
+import AddInventory from './components/addinventory.jsx';
+import WarehouseProvider from './components/WarehouseProvider.jsx';
+import CategoryProvider from './components/CategoryProvider.jsx';
 
 // AuthProvider is a wrapper component that provides the OpenID Connect functionality to its children.
 // Automatically handles much  of the auth flow
@@ -26,6 +29,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider {...oidcConfig}>
     <CodeBookProvider>
+      <WarehouseProvider>
+        <CategoryProvider>
       <BrowserRouter>
         <div className="flex flex-col min-h-screen max-h-full min-w-screen justify-between">
           <div className='min-h-screen'>
@@ -43,13 +48,11 @@ root.render(
                   <Route path="/addSupplier" element={<ProtectedComponent><AddSupplier /></ProtectedComponent>} />
                   <Route path="/supplier" element={<ProtectedComponent><SupplierList /></ProtectedComponent>} />
                   <Route path="/create-po" element={<ProtectedComponent><CreatePurchaseOrder /></ProtectedComponent>} />
+                  <Route path="/addInventory" element={<ProtectedComponent><AddInventory /></ProtectedComponent>} />                    
                 </Routes>
-              </div>
-            </div>
-          </div>
-          <Footer year={new Date().getFullYear()}></Footer>
-        </div>
-      </BrowserRouter>
+          </BrowserRouter>
+        </CategoryProvider>
+      </WarehouseProvider>
     </CodeBookProvider>
   </AuthProvider>
 );
