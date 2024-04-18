@@ -5,12 +5,17 @@ import { FaUser } from "react-icons/fa6";
 import { IoMdHelp } from "react-icons/io";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from 'react-oidc-context';
+import { useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
 
   const { user, signoutSilent } = useAuth();
-
+  const navigate = useNavigate();
+  const signoutNav = () => {
+   signoutSilent();
+    navigate('/');
+  }
 
   return (
     <div className="w-full mt-0 mb-10">
@@ -28,7 +33,7 @@ const Header = () => {
           <IoMdHelp className="my-auto" />
           <button className="hover:bg-slate-800 hover:text-white">Help</button>
           <FaSignOutAlt className="my-auto" />
-          <button className="hover:bg-slate-800 hover:text-white" onClick={signoutSilent}>SignOut</button>
+          <button className="hover:bg-slate-800 hover:text-white" onClick={signoutNav}>SignOut</button>
         </div>
       </div>
     </div>

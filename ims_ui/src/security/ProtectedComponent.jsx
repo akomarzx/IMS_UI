@@ -2,6 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from 'react-oidc-context';
 import { useEffect, useState } from 'react';
 
+
+/* 
+For protecting component rendering, plays nice with react router routes too
+example usage:
+   <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList/></ProtectedComponent>} />
+*/
+
 function ProtectedComponent({ children }) {
   const { user, isLoading } = useAuth();
   const navigate = useNavigate();

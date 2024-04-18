@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from 'react-oidc-context';
+import { useNavigate } from 'react-router-dom';
 
 function currencyFormat(num) {
   return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -50,7 +51,7 @@ function InventoryPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { user } = useAuth();
-
+  const navigate = useNavigate()
   //const serviceUrl = 'http://localhost:8080/api/v1/inventory?page=0&size=5'
   const serviceUrl = 'https://ronaldjro.dev/api/v1/inventory?page=0&size=50'
 
@@ -96,6 +97,9 @@ function InventoryPage() {
             Inventory Items
           </h1>
           <div className='overflow-auto h-4/5'>
+            <div className='flex justify-end mb-2 mx-2'>
+              <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => navigate('/addInventory')}>Add Inventory</button>
+            </div>
             <table className="table-auto w-full max-md:max-w-full">
               <thead>
                 <tr className="text-2xl text-white bg-zinc-800">
@@ -113,8 +117,10 @@ function InventoryPage() {
               </tbody>
             </table>
           </div>
+
         </div>
       </div>
+
     </header>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from 'react-oidc-context';
+import { useNavigate } from 'react-router-dom';
 
 const STATUS_CODES = {
   'PURCHASE_ORDER_PENDING': 'Pending',
@@ -14,19 +15,19 @@ function PurchaseOrderListItem({ order }) {
   //Dynamically create table body (purchase order information)
   //Using w-full etc to set div/element size relative to container (w-11/12 is 11/12 of the container width, etc.)
   //Using max-md:max-w-full to set the container width to full width on mobile devices
-  return (
-    <tbody>
-      <tr className="text-center text-2xl">
-        <td className="px-4 py-2">{statusLabel}</td>
-        <td className="px-4 py-2">{order.orderReferenceNumber}</td>
-        <td className="px-4 py-2">{order.id}</td>
-      </tr>
-      <tr>
-        <td colSpan='3'>
-          <div className="shrink-0 h-0.5 border border-solid bg-zinc-800 border-zinc-800 max-md:max-w-full w-11/12 mx-auto"></div>
-        </td>
-      </tr>
-    </tbody>
+  return (<tbody>
+    <tr className="text-center text-2xl">
+      <td className="px-4 py-2">{statusLabel}</td>
+      <td className="px-4 py-2">{order.orderReferenceNumber}</td>
+      <td className="px-4 py-2">{order.id}</td>
+      <td className="px-4 py-2">{new Date(order?.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+    </tr>
+    <tr>
+      <td colSpan='8'>
+        <div className="shrink-0 h-0.5 border border-solid bg-zinc-800 border-zinc-800 max-md:max-w-full w-11/12 mx-auto"></div>
+      </td>
+    </tr>
+  </tbody>
 
   );
 }
@@ -36,6 +37,7 @@ function PurchaseOrderList() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { user } = useAuth();
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (user) {
@@ -88,13 +90,17 @@ function PurchaseOrderList() {
               <tr className="text-3xl text-white rounded-2xl bg-zinc-800">
                 <th className="rounded-l-2xl px-4 py-2">Order Status</th>
                 <th className="px-4 py-2">Ref</th>
-                <th className="rounded-r-2xl px-4 py-2">Order #</th>
+                <th className="px-4 py-2">Order #</th>
+                <th className="rounded-r-2xl px-4 py-2">Date Created</th>
               </tr>
             </thead>
             {orders.map(order => (
               <PurchaseOrderListItem key={order.id} order={order} />
             ))}
           </table>
+          <div className='flex justify-center mt-3.5'>
+            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => navigate('/create-po')}>Create Purchase Order</button>
+          </div>
         </div>
 
         <div className="py-2">
