@@ -16,6 +16,8 @@ import InventoryPage from './components/InventoryList.jsx';
 import { Navigate, useNavigate } from 'react-router-dom';
 //inactive paths are commented out please use as needed for testing purpose
 
+import CodeBookProvider from './components/CodeBookProvider';
+
 
 function App() {
   // useAuth can be destrctured for useful Authentication related properties and funtions

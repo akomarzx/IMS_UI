@@ -12,6 +12,7 @@ import PurchaseOrderList from './components/PurchaseOrderList.jsx';
 import Footer from './components/footer.jsx';
 import AddSupplier from './components/addsupplier.jsx';
 import Header from './components/header.jsx';
+import CodeBookProvider from './components/CodeBookProvider.jsx';
 import InventoryPage from './components/InventoryList.jsx';
 import SideNavBar from './components/sidenavbar.jsx';
 
@@ -22,6 +23,7 @@ import SideNavBar from './components/sidenavbar.jsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider {...oidcConfig}>
+    <CodeBookProvider>
     <BrowserRouter>
       <div className="flex flex-col min-h-screen max-h-full min-w-screen justify-between">
         <div className='min-h-screen'>
@@ -36,13 +38,14 @@ root.render(
                 <Route path="/" element={<App />} />
                 <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList /></ProtectedComponent>} />
                 <Route path="/inventory" element={<ProtectedComponent><InventoryPage /></ProtectedComponent>} />
-                <Route path="/addSupplier" element={<AddSupplier />} />
+                <Route path="/addSupplier" element={<ProtectedComponent><AddSupplier /></ProtectedComponent>} />
               </Routes>
             </div>
           </div>
         </div>
         <Footer year={new Date().getFullYear()}></Footer>
       </div>
+    </CodeBookProvider>
     </BrowserRouter>
   </AuthProvider>
 );
