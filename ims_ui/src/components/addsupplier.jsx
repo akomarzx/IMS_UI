@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useAuth } from 'react-oidc-context';
 import CodeBookContext from './CodeBookContext';
+import { useNavigate } from 'react-router-dom';
 
 function AddSupplierForm() {
   const [label, setLabel] = useState('');
@@ -16,6 +17,7 @@ function AddSupplierForm() {
   const [provinces, setProvinces] = useState([]);
   const codeBook = useContext(CodeBookContext);
   const [accountType, setAccountType] = useState(null);
+  const navigate = useNavigate();
 
   //get the country and province code values from the codeBook (also used here for setting the vendor account type by appropriate type id)
   //if this is the first component loaded calling the codebook context after a log in, the code book may not be populated intially
@@ -199,7 +201,7 @@ return (
           </button>
         </div>
         <div className="grow justify-center mx-10 py-2 px-5 rounded-lg bg-zinc-800">
-          <button id="cancel">Cancel</button>
+          <button id="cancel" onClick={() => navigate('/')}>Cancel</button>
         </div>
       </div>
     </form>
