@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { useAuth } from 'react-oidc-context';
-import Header from "./components/header"
-import Footer from "./components/footer"
-//import SignUp from "./components/signup"
-import PurchaseOrderList from './components/PurchaseOrderList.jsx';
+import CodeBookProvider from './components/CodeBookProvider';
+
 
 function App() {
   // useAuth can be destrctured for useful Authentication related properties and funtions
@@ -20,6 +18,7 @@ function App() {
   }, [user, signinRedirect]);
 
   if (user) {
+
     return <h1>You are logged in!</h1>
         
   } else {

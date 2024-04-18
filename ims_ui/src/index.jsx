@@ -12,6 +12,7 @@ import PurchaseOrderList from './components/PurchaseOrderList.jsx';
 import Footer from './components/footer.jsx';
 import AddSupplier from './components/addsupplier.jsx';
 import Header from './components/header.jsx';
+import CodeBookProvider from './components/CodeBookProvider.jsx';
 
 
 // AuthProvider is a wrapper component that provides the OpenID Connect functionality to its children.
@@ -21,6 +22,7 @@ import Header from './components/header.jsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider {...oidcConfig}>
+    <CodeBookProvider>
     <div className="flex flex-col min-h-screen center-content">
       <Header />
       <Router>
@@ -28,11 +30,12 @@ root.render(
           <Route path="/callback" element={<Callback />} />
           <Route path="/" element={<App />} />
           <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList/></ProtectedComponent>} />
-          <Route path="/addSupplier" element={<AddSupplier />}  />
+          <Route path="/addSupplier" element={<ProtectedComponent><AddSupplier /></ProtectedComponent>}  />
         </Routes>
       </Router>
       <Footer year={new Date().getFullYear()}></Footer>
     </div>
+    </CodeBookProvider>
   </AuthProvider>
 );
 
