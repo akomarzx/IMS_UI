@@ -31,25 +31,29 @@ root.render(
     <CodeBookProvider>
       <WarehouseProvider>
         <CategoryProvider>
-      <BrowserRouter>
-        <div className="flex flex-col min-h-screen max-h-full min-w-screen justify-between">
-          <div className='min-h-screen'>
-            <Header />
-            <div className='flex flex-row'>
-              <div>
-                <SideNavBar></SideNavBar>
+          <BrowserRouter>
+            <div className="flex flex-col min-h-screen max-h-full min-w-screen justify-between">
+              <div className='min-h-screen'>
+                <Header />
+                <div className='flex flex-row'>
+                  <div>
+                    <SideNavBar></SideNavBar>
+                  </div>
+                  <div className='flex-grow'>
+                    <Routes>
+                      <Route path="/callback" element={<Callback />} />
+                      <Route path="/" element={<App />} />
+                      <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList /></ProtectedComponent>} />
+                      <Route path="/inventory" element={<ProtectedComponent><InventoryPage /></ProtectedComponent>} />
+                      <Route path="/addSupplier" element={<ProtectedComponent><AddSupplier /></ProtectedComponent>} />
+                      <Route path="/supplier" element={<ProtectedComponent><SupplierList /></ProtectedComponent>} />
+                      <Route path="/create-po" element={<ProtectedComponent><CreatePurchaseOrder /></ProtectedComponent>} />
+                      <Route path="/addInventory" element={<ProtectedComponent><AddInventory /></ProtectedComponent>} />
+                    </Routes>
+                  </div>
+                </div>
               </div>
-              <div className='flex-grow'>
-                <Routes>
-                  <Route path="/callback" element={<Callback />} />
-                  <Route path="/" element={<App />} />
-                  <Route path="/purchaseOrderList" element={<ProtectedComponent><PurchaseOrderList /></ProtectedComponent>} />
-                  <Route path="/inventory" element={<ProtectedComponent><InventoryPage /></ProtectedComponent>} />
-                  <Route path="/addSupplier" element={<ProtectedComponent><AddSupplier /></ProtectedComponent>} />
-                  <Route path="/supplier" element={<ProtectedComponent><SupplierList /></ProtectedComponent>} />
-                  <Route path="/create-po" element={<ProtectedComponent><CreatePurchaseOrder /></ProtectedComponent>} />
-                  <Route path="/addInventory" element={<ProtectedComponent><AddInventory /></ProtectedComponent>} />                    
-                </Routes>
+            </div>
           </BrowserRouter>
         </CategoryProvider>
       </WarehouseProvider>
