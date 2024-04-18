@@ -97,6 +97,9 @@ function InventoryPage() {
             Inventory Items
           </h1>
           <div className='overflow-auto h-4/5'>
+            <div className='flex justify-end mb-2 mx-2'>
+              <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => navigate('/addInventory')}>Add Inventory</button>
+            </div>
             <table className="table-auto w-full max-md:max-w-full">
               <thead>
                 <tr className="text-2xl text-white bg-zinc-800">
@@ -114,9 +117,7 @@ function InventoryPage() {
               </tbody>
             </table>
           </div>
-          <div className='flex justify-center mt-[70px]'>
-            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => navigate('/addInventory')}>Add Inventory</button>
-          </div>
+
         </div>
       </div>
 

@@ -53,6 +53,7 @@ root.render(
                   </div>
                 </div>
               </div>
+              <Footer year={new Date().getFullYear()}></Footer>
             </div>
           </BrowserRouter>
         </CategoryProvider>
