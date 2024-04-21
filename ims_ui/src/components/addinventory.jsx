@@ -225,7 +225,7 @@ function AddInventoryForm() {
               Add Inventory Item
             </button></div>
           <div className="grow hover:bg-zinc-800 hover:text-stone-400 justify-center text-zinc-800 mx-10 py-2 px-5 rounded-lg bg-stone-400">
-            <button id="cancel">Cancel</button></div>
+            <button id="cancel" onClick={() => { navigate('/inventory') }}>Cancel</button></div>
         </div>
       </form>
     </div>

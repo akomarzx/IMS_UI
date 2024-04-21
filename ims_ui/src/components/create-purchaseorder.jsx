@@ -101,6 +101,11 @@ function CreatePurchaseOrder() {
 
   const handleCreatePO = (event) => {
     event.preventDefault();
+
+    if(inventory === -1 || warehouseId === -1 || accountId === -1) {
+      return;
+    }
+
     // Implement logic for adding the supplier here
     const supplierData = {
       accountId,
@@ -169,6 +174,7 @@ function CreatePurchaseOrder() {
             className="grow justify-center mt-2 mx-3 px-2 py-1 text-xl rounded-lg border-2 border-solid bg-stone-400 border-zinc-800 text-zinc-800 w-[350px]"
             onChange={(e) => setAccountIdSelected(e.target.value)}
           >
+            <option value={-1}></option>
             {suppliers.map(supplier => (
               <option key={supplier.id} value={supplier.id}>{supplier.label}</option>
             ))}
@@ -193,6 +199,7 @@ function CreatePurchaseOrder() {
             className="grow justify-center mt-2 mx-3 px-2 py-1 text-xl rounded-lg border-2 border-solid bg-stone-400 border-zinc-800 text-zinc-800 w-[350px]"
             onChange={(e) => setWarehouseId(e.target.value)}
           >
+            <option key={-1} value={-1}></option>
             {warehouses.map(warehouse => (
               <option key={warehouse.id} value={warehouse.id}>{warehouse.label}</option>
             ))}
@@ -210,6 +217,7 @@ function CreatePurchaseOrder() {
             className="justify-center mt-2 mx-3 px-2 py-1 text-xl rounded-lg border-2 border-solid bg-stone-400 border-zinc-800 text-zinc-800"
             onChange={(e) => setInventory(e.target.value)}
           >
+            <option key={-1} value={-1}></option>
             {inventories.map(inventory => (
               <option key={inventory.inventoryId} value={inventory.inventoryId}>{inventory.label}</option>
             ))}
