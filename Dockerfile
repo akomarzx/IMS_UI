@@ -1,9 +1,9 @@
 #Build Stage
 FROM node:21-alpine3.18 as build
 WORKDIR /app
-COPY ./ims_ui/package*.json ./
+COPY ./ims_client/package*.json ./
 RUN npm install
-COPY ./ims_ui/ .
+COPY ./ims_client/ .
 RUN npm run build
 
 #Deployment Stage
